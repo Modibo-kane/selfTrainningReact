@@ -1,0 +1,33 @@
+.cardInfos{
+   text-align: left;
+   padding: 0.5em;
+}
+
+h1{
+    font-size: 2em;
+    /* margin-bottom: 0.5em; */
+}
+
+p{
+    font-size: 1.2em;
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardInfos> p > span{
+    font-weight: bold;
+    /* color: rgb(34, 0, 128); */
+}
+
+.masculin{
+    background-color: rgb(59, 143, 246);
+}
+
+.feminin{
+    background-color: rgb(255, 0, 128);
+}
+
+.neutre{
+    background-color: rgb(187, 186, 186);
+}

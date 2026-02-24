@@ -1,0 +1,25 @@
+.dashbord{
+    background-color: #454955;
+    border-radius: 5px;
+    width: 800px;
+    padding: 25px;
+}
+
+.dashbord h1{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.subTitle{
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.widgetsContenair{
+    display: flex;
+    gap:15px;
+}
