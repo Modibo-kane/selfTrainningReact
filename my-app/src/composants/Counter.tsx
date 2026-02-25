@@ -1,11 +1,14 @@
 import style from './Counter.module.css'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 type initialCountType  = {initialCount: number}
 
 export const Counter = ({initialCount}: initialCountType )=>{
 
   const [count, setCount] = useState(initialCount);
+
+  // 🔑 Synchroniser count avec initialCount quand il change
+   useEffect(() => { setCount(initialCount); }, [initialCount]);
 
   const increment =()=> setCount(count + 1)
   const reset =()=> setCount(0)
