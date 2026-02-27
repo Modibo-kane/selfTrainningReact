@@ -8,7 +8,9 @@ export const Counter = ({initialCount}: initialCountType )=>{
   const [count, setCount] = useState(initialCount);
 
   // 🔑 Synchroniser count avec initialCount quand il change
-   useEffect(() => { setCount(initialCount); }, [initialCount]);
+   useEffect(() => { 
+        setCount(initialCount); 
+      }, [initialCount]);
 
   const increment =()=> setCount(count + 1)
   const reset =()=> setCount(0)
