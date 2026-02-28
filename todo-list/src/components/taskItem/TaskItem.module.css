@@ -1,0 +1,75 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  gap: 10px;
+  border-radius: 8px;
+  border: solid 1px;
+  cursor: pointer;
+  /* background-color: #171717; */
+}
+
+.item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.default{
+  background-color: #171717;
+  border-color: #272727;
+}
+
+.default:hover{
+  background-color: rgba(59,121,246,0.03);
+  border-color: rgba(59,121,246,0.15);
+}
+
+.success{
+  background-color: rgba(84,255,14,0.04);
+  border-color: rgba(84,255,14,0.15);
+}
+
+.success:hover{
+  background-color: rgba(84,255,14,0.07);
+  border-color: rgba(84,255,14,0.2);
+}
+
+.checkbox{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.id{
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0 2px;
+  font-weight: 900px;
+}
+
+.idDefault{
+  background-color: rgba(59,121,246,0.15);
+  color: #2870ff;
+}
+
+.idSuccess{
+  background-color: rgba(84,255,14,0.15);
+  border-color: rgba(84,255,14,0.4);
+}
+
+.contentDefault{
+  color: #ffffff;
+}
+
+.contentSuccess{
+  text-decoration: line-through;
+  color: #4B5563;
+}

@@ -1,0 +1,14 @@
+.contenaire {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.titleContenaire{
+  display:flex;
+  align-items: center;
+  gap: 15px;
+  text-align: start;
+}
