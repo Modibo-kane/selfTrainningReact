@@ -1,61 +1,23 @@
-// ce composant est utilisé pour afficher l'intégralité du contenu de Task
+// components/TaskContainer.tsx
+import { Footer } from "./footer/Footer";
+import { Header } from "./header/Header";
+import { TaskInput } from "./taskInput/TaskInput";
+import { TaskList } from "./taskList/TaskListe";
+import { useTasks } from "../hooks/useTasks";
 
-import { useState } from "react"
-import { Footer } from "./footer/Footer"
-import { Header } from "./header/Header"
-import { TaskInput } from "./taskInput/TaskInput"
-import { TaskListe } from "./taskList/TaskListe"
-import type { TaskType } from "./types/TasksType"
+export const TaskContainer = () => {
+  const { tasks, addTask, deleteTask, toggleTaskComplete } = useTasks();
 
-export const TaskContenaire = () =>{
-
-  const [tasksList, setTasksList] = useState<TaskType[]>([])
-
-  const addTasks = (title: string) =>{
-    const newTask = {
-      id:tasksList.length + 1,
-      title: title,
-      completed: false,
-    }
-
-    setTasksList([...tasksList, newTask])
-  }
-
-  const editTask = ({id, completed}: TaskType) =>{
-    setTasksList(
-      tasksList.map((task)=> 
-        task.id === id ? {...task, completed: completed} : task
-      )
-    )
-  }
-
-  const deleteTask = ({id}: TaskType) => {
-    setTasksList(tasksList.filter((task)=> task.id !== id))
-  }
-
-  const getTaskCounts = ()=>{
-    const completedTask = tasksList.filter(task => task.completed).length
-    const unCompletedTask = tasksList.length - completedTask;
-
-    return {
-      completedTask, unCompletedTask
-    }
-  }
-
-  const {completedTask, unCompletedTask} = getTaskCounts()
-
-  console.log(`complete: ${completedTask}\n incomplete: ${unCompletedTask} `)
-
-  return ( 
+  return (
     <main>
       <Header />
-      <TaskInput addTask={addTasks}/>
-      <TaskListe  
-      liste= {tasksList} 
-      edit={editTask} 
-      onDelete={deleteTask} 
-      unCompleted ={unCompletedTask} />
-      <Footer></Footer>
+      <TaskInput onAddTask={addTask} />
+      <TaskList
+        tasks={tasks}
+        onDelete={deleteTask}
+        onToggleComplete={toggleTaskComplete}
+      />
+      <Footer tableTasks={tasks} />
     </main>
-  )
-}
+  );
+};

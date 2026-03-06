@@ -1,32 +1,29 @@
-//  ce composant es utlisé pour afficher la liste des tâches
+// components/taskList/TaskList.tsx
+import { TaskItem } from '../taskItem/TaskItem';
+import styles from './TaskListe.module.css';
+import type { TaskListProps } from '../../types';
 
-import {TaskItem} from '../taskItem/TaskItem'
-import styles from './TaskListe.module.css'
-import type {TaskListeType} from '../types/TasksType';
-
-
-
-export const TaskListe = ({liste, unCompleted, edit, onDelete}: TaskListeType) => {
-
-  const tasklist = liste.map(task => (
-    <TaskItem key={task.id} edit = {edit}/>
-  ))
+export const TaskList = ({ tasks, onDelete, onToggleComplete }: TaskListProps) => {
+  const incompleteTasksCount = tasks.filter(task => !task.done).length;
 
   return (
     <div className="box">
-        <h2 className={styles.title}>
-           Il te reste encore {unCompleted} tâches à accomplir ! 
-    </h2>
-    
-      {
-        liste && liste.length > 0 ? (
-          <ul className={styles.container}>
-             {tasklist}
-          </ul>
-        ) : null
-      }
-         
+      <h2 className={styles.title}>
+        Il te reste encore {incompleteTasksCount} tâche{incompleteTasksCount > 1 ? 's' : ''} à accomplir !
+      </h2>
+      <ul className="container">
+        {tasks
+          .map((task, index) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              index={index}
+              onDelete={onDelete}
+              onToggleComplete={onToggleComplete}
+            />
+          ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 

@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application de liste de tâches moderne développée avec React et TypeScript.
 
-Currently, two official plugins are available:
+## Fonctionnalités
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Ajouter de nouvelles tâches
+- ✅ Marquer les tâches comme terminées
+- ✅ Supprimer des tâches
+- ✅ Compteur de tâches restantes
+- ✅ Interface responsive
 
-## React Compiler
+## Structure du projet
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```html
+src/
+├── components/
+│   ├── TaskContainer.tsx      # Composant principal
+│   ├── taskInput/
+│   ├── taskList/
+│   ├── taskItem/
+│   ├── header/
+│   └── footer/
+├── hooks/
+│   └── useTasks.ts           # Hook personnalisé pour la logique des tâches
+├── types/
+│   └── index.ts              # Types TypeScript centralisés
+└── styles/
+    └── *.module.css          # Styles modulaires
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies utilisées
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React 18** avec hooks
+- **TypeScript** pour le typage
+- **CSS Modules** pour le styling
+- **Vite** pour le bundling
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Scripts disponibles
+
+```bash
+npm install          # Installer les dépendances
+npm run dev         # Démarrer le serveur de développement
+npm run build       # Build pour la production
+npm run preview     # Prévisualiser le build
 ```
+
+## Améliorations apportées
+
+### Code plus propre
+
+- **Types centralisés** : Tous les types dans `src/types/index.ts`
+- **Hook personnalisé** : `useTasks` pour la logique métier
+- **Nommage cohérent** : Props et fonctions descriptives
+- **Performance** : `useCallback` pour éviter les re-renders inutiles
+
+### Architecture
+
+- **Séparation des responsabilités** : Chaque composant a un rôle clair
+- **Props drilling évité** : Utilisation de context ou hooks personnalisés
+- **Immutabilité** : Pas de mutation directe des états
+
+## Fonctionnement
+
+1. **Ajouter une tâche** : Saisir du texte et appuyer sur Entrée ou cliquer sur "Ajouter"
+2. **Marquer comme terminée** : Cliquer sur l'élément de la tâche
+3. **Supprimer** : Cliquer sur le bouton "x" de la tâche
+
+## Tests
+
+```bash
+npm run test        # Exécuter les tests (à implémenter)
+```
+
+## Déploiement
+
+L'application peut être déployée sur :
+
+- Vercel
+- Netlify
+- GitHub Pages
+- Tout serveur statique
+
+## Contribution
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request

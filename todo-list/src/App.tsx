@@ -1,12 +1,11 @@
-import { TaskContenaire } from "./components/TaskCoontenaire"
+import { TaskContainer } from "./components/TaskCoontenaire";
 
 function App() {
-
   return (
     <>
-      <TaskContenaire/>
+      <TaskContainer />
     </>
-  )
+  );
 }
 
 export default App
